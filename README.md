@@ -19,12 +19,18 @@ Images are just a template. They themselves cannot run code.
 
 To make a runnable system based on the image, we need a container. Unlike
 images, containers can be executed. To do so, run
-`docker run --rm -it hacktcnj2024`. `-it` means we want an interactive terminal
-session to this container. `hacktcnj2024` is the image we want to make a
-container from. `--rm` causes the container to automatically self-destruct when
-stopped. Remove this if that's not what you want, however keep in mind that
-containers are not supposed to save files or changes within themselves. They're
-intended to be disposable.
+`docker run -it -p=8000:8000 --rm hacktcnj2024`.
+
+- `-it` means we want an interactive terminal session to this container.
+  Otherwise, docker will run it in the background.
+- `-p=8000:8000` means the container's port 8000 should be linked to the host
+  OS's port 8000. This makes it so your web browser can talk to django in the
+  container.
+- `--rm` causes the container to automatically self-destruct when stopped.
+  Remove this if that's not what you want, however keep in mind that containers
+  are not supposed to save files or changes within themselves. They're intended
+  to be disposable.
+- `hacktcnj2024` is the image we want to make a container from.
 
 ## Running Django locally (outside docker)
 While you can develop from within a docker container, that goes beyond the scope
