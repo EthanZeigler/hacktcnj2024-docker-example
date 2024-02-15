@@ -8,9 +8,9 @@ Ensure you have docker installed in one way or another. This can either be the
 [desktop version](https://www.docker.com/products/docker-desktop/) or
 command-line version, but I'd recommend desktop for anyone inexperienced with it.
 
-Once that's done and you've started docker, cd into the directory containing `pyproject.toml`. Run `docker build . -f python-django/docker/Dockerfile -t hacktcnj2024`. This creates a docker image, or a snapshot of your project named hacktcnj2024. Images are just a template. They themselves cannot run code.
+Once that's done and you've started docker, cd into the directory containing `pyproject.toml`. Run `docker build . -f python-django/docker/Dockerfile -t hacktcnj2024`. This creates a docker image, or a snapshot of your project named `hacktcnj2024`. Images are just a template. They themselves cannot run code.
 
-To make a runnable system based on the image, we need a container. Unlike images, containers can change and save their state over multiple runs. To do so, run `docker run --rm -it hacktcnj2024`. `--rm` causes the container to automatically self-destruct when stopped. Remove this if that's not what you want, however keep in mind that containers are not supposed to save files or changes within themselves. They're intended to be disposable.
+To make a runnable system based on the image, we need a container. Unlike images, containers can be executed. To do so, run `docker run --rm -it hacktcnj2024`. `-it` means we want an interactive terminal session to this container. `hacktcnj2024` is the image we want to make a container from. `--rm` causes the container to automatically self-destruct when stopped. Remove this if that's not what you want, however keep in mind that containers are not supposed to save files or changes within themselves. They're intended to be disposable.
 
 ## Running Django locally (outside docker)
 While you can develop from within a docker container, that goes beyond the scope
