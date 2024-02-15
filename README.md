@@ -1,5 +1,8 @@
 # HACKTCNJ 2024 Docker Example Project
 
+## Downloading this code
+On your computer, cd to wherever you want to store this demo. run `git clone https://github.com/EthanZeigler/hacktcnj2024-docker-example` there. The code should download.
+
 ## Docker Setup
 Ensure you have docker installed in one way or another. This can either be the
 [desktop version](https://www.docker.com/products/docker-desktop/) or
