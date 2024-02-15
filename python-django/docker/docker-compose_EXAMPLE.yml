@@ -1,0 +1,29 @@
+# This is an example file showing how docker can be used to start a database
+# server such as postgres with no need to install other programs or deal
+# with OS-level configuration. Again, "It just works".
+#
+# However, this demo uses sqlite as a database for simplicity reasons.
+# THIS COMPOSE FILE ISN'T NECESSARY. It's just for show.
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db

@@ -1,0 +1,3 @@
+# Ensures any test db is copied to docker despite
+# being in the gitignore. 
+!*.sqlite3

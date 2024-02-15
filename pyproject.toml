@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "python-django"
+version = "0.1.0"
+description = "Hack TCNJ python django"
+authors = ["Ethan Zeigler <ethanzeigler@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^5.0.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
